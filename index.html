@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="StreamTV — a clean, open IPTV browser for watching public live channels.">
+  <title>StreamTV — Live TV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#">
+      <span class="brand-mark"><span></span></span>
+      <span>Stream<span class="brand-muted">TV</span></span>
+    </a>
+
+    <label class="search">
+      <span>⌕</span>
+      <input id="search" type="search" placeholder="Search channels..." autocomplete="off">
+      <kbd>/</kbd>
+    </label>
+
+    <div class="top-actions">
+      <span class="count" id="channelCount">Loading…</span>
+      <button class="icon-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">☼</button>
+    </div>
+  </header>
+
+  <div class="mobile-categories" id="mobileCategories"></div>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-label">Browse</div>
+      <nav id="categories"></nav>
+      <div class="sidebar-card">
+        <div class="mini-orb"></div>
+        <strong>Open TV</strong>
+        <span>Public IPTV channels</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="pulse"></span> LIVE TELEVISION</div>
+          <h1>Watch something<br><em>worth watching.</em></h1>
+          <p>Browse thousands of public live channels in a minimal, fast interface.</p>
+          <div class="hero-stats">
+            <div><strong id="heroCount">—</strong><span>channels</span></div>
+            <div><strong id="heroCategoryCount">—</strong><span>categories</span></div>
+            <div><strong>HLS</strong><span>playback</span></div>
+          </div>
+        </div>
+        <div class="hero-scene" aria-hidden="true">
+          <div class="scene-grid"></div>
+          <div class="tv-3d">
+            <div class="tv-screen"><span>LIVE</span></div>
+            <div class="tv-frame"></div>
+            <div class="tv-stand"></div>
+          </div>
+          <div class="floating-card card-one">● LIVE</div>
+          <div class="floating-card card-two">1080p</div>
+        </div>
+      </section>
+
+      <section class="player-wrap">
+        <div class="player" id="player">
+          <div class="video-container">
+            <video id="video" controls playsinline preload="metadata"></video>
+            <div class="player-empty" id="playerEmpty">
+              <div class="big-play">▶</div>
+              <strong>Select a channel</strong>
+              <span>Your selected stream will appear here.</span>
+            </div>
+            <div class="player-badge"><span></span> LIVE</div>
+          </div>
+          <div class="player-info">
+            <div class="now">
+              <div class="now-logo" id="nowLogo">TV</div>
+              <div>
+                <h2 id="nowPlaying">Nothing playing</h2>
+                <span id="nowGroup">Choose a channel below</span>
+              </div>
+            </div>
+            <div class="player-actions">
+              <button class="small-btn" id="fullscreenBtn">Fullscreen</button>
+              <button class="small-btn" id="stopBtn">Stop</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="library-head">
+        <div>
+          <div class="section-kicker">CHANNEL LIBRARY</div>
+          <h2 id="sectionTitle">All channels</h2>
+        </div>
+        <span class="result-count" id="resultCount"></span>
+      </section>
+
+      <section class="channels" id="channels"></section>
+    </main>
+  </div>
+
+  <footer>
+    <span>StreamTV</span>
+    <span>Public IPTV browser · Built for learning</span>
+  </footer>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
